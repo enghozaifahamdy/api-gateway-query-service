@@ -1,0 +1,16 @@
+package com.example.query.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "event_type")
+@Data
+public class EventTypeEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "type", nullable = false, unique = true, length = 50)
+    private String type;
+}
