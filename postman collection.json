@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "00a89d46-a4c8-47a3-b09a-14d2a13b6f0e",
+		"name": "Trade and Ticker Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345678"
+	},
+	"item": [
+		{
+			"name": "Trade Endpoints",
+			"item": [
+				{
+					"name": "Get Trade by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade/{{tradeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade",
+								"{{tradeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save New Trade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"symbol\": \"ETHUSDT\",\n    \"price\": 3500.00,\n    \"quantity\": 0.05,\n    \"timestamp\": 1678886400000,\n    \"eventType\": \"trade\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trade by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade/{{tradeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade",
+								"{{tradeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Trade",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tradeId\": {{tradeId}},\n    \"symbol\": \"ETHUSDT\",\n    \"price\": 3600.00,\n    \"quantity\": 0.05,\n    \"timestamp\": 1678886400000,\n    \"eventType\": \"trade\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade?page=0&size=20&sortBy=tradeId&sortDirection=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "tradeId"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Trade by Symbol",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade/symbol/{{symbol}}/latest",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade",
+								"symbol",
+								"{{symbol}}",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trades by Symbol",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/trade/symbol/{{symbol}}?page=0&size=20&sortBy=tradeId&sortDirection=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"trade",
+								"symbol",
+								"{{symbol}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "tradeId"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticker Endpoints",
+			"item": [
+				{
+					"name": "Get Ticker by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker/{{tickerId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker",
+								"{{tickerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save New Ticker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"symbol\": \"ETHUSDT\",\n    \"lastPrice\": 3500.00,\n    \"highPrice\": 3600.00,\n    \"lowPrice\": 3400.00,\n    \"volume\": 100.5,\n    \"timestamp\": 1678886400000,\n    \"eventType\": \"24hrTicker\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticker by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker/{{tickerId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker",
+								"{{tickerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Ticker",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tickerId\": {{tickerId}},\n    \"symbol\": \"ETHUSDT\",\n    \"lastPrice\": 3600.00,\n    \"highPrice\": 3700.00,\n    \"lowPrice\": 3500.00,\n    \"volume\": 101.5,\n    \"timestamp\": 1678886400000,\n    \"eventType\": \"24hrTicker\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tickers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker?page=0&size=20&sortBy=id&sortDirection=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Ticker by Symbol",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker/symbol/{{symbol}}/latest",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker",
+								"symbol",
+								"{{symbol}}",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tickers by Symbol",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{apiKey}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/internal/ticker/symbol/{{symbol}}?page=0&size=20&sortBy=id&sortDirection=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"internal",
+								"ticker",
+								"symbol",
+								"{{symbol}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "X-API-KEY",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "your-api-key-here",
+			"type": "string"
+		}
+	]
+}
